@@ -174,13 +174,13 @@ def extract_names(filename):
     real_way = str(os.path.abspath(os.path.join(real_dir, filename)))
     ufile = urllib.request.urlopen('file:///' + real_way)
     html = ufile.read().decode('utf 8')
-    g5 = re.findall(r'<td width="104|94|90">\s*?(\w.*?)\s*?</td>', html)  # последующие значения
-    g3 = re.findall(r'<td width="151|177">\s*?([йцукенгшщзхъфывапролджэячсмитьбюёЁЙЦУКЕНГШЩЗХЪФЫВАПРОЛДЖЭЯЧСМИТЬБЮ, ]*?)\s*?</td>', html)   # имена
-    g4 = re.findall(r'<td width="85|76">\s*?(\w.*?)\s*?</td>', html)                                                                       # первое значение
+    nextval = re.findall(r'<td width="104|94|90">\s*?(\w.*?)\s*?</td>', html)  # последующие значения
+    childnames = re.findall(r'<td width="151|177">\s*?([йцукенгшщзхъфывапролджэячсмитьбюёЁЙЦУКЕНГШЩЗХЪФЫВАПРОЛДЖЭЯЧСМИТЬБЮ, ]*?)\s*?</td>', html)   # имена
+    frstval = re.findall(r'<td width="85|76">\s*?(\w.*?)\s*?</td>', html)                                                                       # первое значение
     result = {}
-    result[g3[0]] = g4[0], g5[0], g5[1], g5[2], g5[3]                                                                                   #присвоили первые значения массиву
+    result[childnames[0]] = frstval[0], nextval[0], nextval[1], nextval[2], nextval[3]                                                                                   #присвоили первые значения массиву
     for d in range(4, 200, 4):
-        result[g3[int(d/4)]] = g4[int(d/4)], g5[d], g5[d + 1], g5[d + 2], g5[d + 3]
+        result[childnames[int(d/4)]] = frstval[int(d/4)], nextval[d], nextval[d + 1], nextval[d + 2], nextval[d + 3]
     years = ['2012', '2010', '2005', '2000', '1990']
     year_dict = {}
     for key in result:

@@ -198,7 +198,7 @@ def print_names(new_dict):                         #сортировка по к
     andict = new_dict
     childlist = []                                                                                  # создаём пусток список для детей
     for key in andict:
-        number = int(((andict[key][year]).split())[0])                                              # das
+        number = int(((andict[key][year]).split())[0])                                              # количество детей
         childlist.append(tuple((key, number,)))                                                     # записываем имя и количество детей в указанный ранне список
     sorted_childlist = (sorted(childlist, key=lambda student: student[1], reverse=True))            # сортируем список по количеству детей
     for child in sorted_childlist:

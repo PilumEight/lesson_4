@@ -46,17 +46,26 @@ def rabotaet():
     some2 = re.findall(r'[0-9a-fA-F]{1,3}(?:[.][0-9a-fA-F]{1,3}){3}', html)
     some21 = list(set(some2))
     crt_index = open('index.html', 'w')
+    style ="""{
+  color: white;
+  text-shadow: 2px 2px 4px #000000;
+}"""
     crt_index.write("""
 <html>
 <body>
-    {0}
-    {1}
-    {2}
-    {3}
-    {4}
-    {5}
+<style>
+h1 {6}
+</style>
+<h1>
+    {0} 
+    {1} 
+    {2} 
+    {3} 
+    {4} 
+    {5} 
+</h1>
 </body>
-</html>""".format(some21[0], some21[1], some21[2], some21[3], some21[4], some21[5]))
+</html>""".format(some21[0], some21[1], some21[2], some21[3], some21[4], some21[5], style))
 
 def read_urls(filename):
 

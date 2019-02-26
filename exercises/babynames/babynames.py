@@ -132,7 +132,6 @@ import urllib.parse
 import sys
 
 
-sys.argv[0] = 'babynames_boys.html'
 
 def extract_names(filename):
 
@@ -194,7 +193,7 @@ def extract_names(filename):
 
 
 def print_names(new_dict):                         #сортировка по количеству детей
-    year = input("2012, 2010, 2005, 2000, 1990")
+    year = input("Pls enter year:2012, 2010, 2005, 2000, 1990")
     andict = new_dict
     childlist = []                                                                                  # создаём пусток список для детей
     for key in andict:

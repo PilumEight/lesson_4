@@ -47,8 +47,8 @@ def rabotaet():
     some21 = list(set(some2))
     crt_index = open('index.html', 'w')
     style ="""{
-  color: white;
-  text-shadow: 2px 2px 4px #000000;
+box-shadow: 0 4px 8px 0 rgba(0,0,0,0.12),
+            0 2px 4px 0 rgba(0,0,0,0.08);
 }"""
     crt_index.write("""
 <html>
@@ -57,12 +57,12 @@ def rabotaet():
 h1 {6}
 </style>
 <h1>
-    {0} 
-    {1} 
-    {2} 
-    {3} 
-    {4} 
-    {5} 
+  <h1>  {0:5} </h1> 
+  <h1>  {1} </h1>   
+    <h1>  {2} </h1>
+    <h1>  {3} </h1> 
+    <h1>  {4} </h1>  
+    <h1>  {5} </h1> 
 </h1>
 </body>
 </html>""".format(some21[0], some21[1], some21[2], some21[3], some21[4], some21[5], style))

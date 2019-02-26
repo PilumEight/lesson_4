@@ -49,7 +49,12 @@ def rabotaet():
     crt_index.write("""
 <html>
 <body>
-<img src="{0}"><img src="{1}"><img src="{2}"><img src="{3}"><img src="{4}"><img src="{5}">
+    {0}
+    {1}
+    {2}
+    {3}
+    {4}
+    {5}
 </body>
 </html>""".format(some21[0], some21[1], some21[2], some21[3], some21[4], some21[5]))
 

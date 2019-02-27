@@ -212,8 +212,13 @@ def main():
     # Код разбора командной строки
     # Получим список аргументов командной строки, отбросив [0] элемент, 
     # который содержит имя скрипта
+    args = sys.argv[1:]
 
-    filename = input("filename")
+    if not args:
+        print('usage: filename')
+        sys.exit(1)
+
+    filename = args[0]
     babynames = extract_names(filename)
     print_names(babynames)
 

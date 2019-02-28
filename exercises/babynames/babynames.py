@@ -173,9 +173,9 @@ def extract_names(filename):
     real_way = str(os.path.abspath(os.path.join(real_dir, filename)))
     ufile = urllib.request.urlopen('file:///' + real_way)
     html = ufile.read().decode('utf 8')
-    nextval = re.findall(r'<td width="104|94|90">\s*?(\w.*?)\s*?</td>', html)  # последующие значения
-    childnames = re.findall(r'<td width="151|177">\s*?([йцукенгшщзхъфывапролджэячсмитьбюёЁЙЦУКЕНГШЩЗХЪФЫВАПРОЛДЖЭЯЧСМИТЬБЮ, ]*?)\s*?</td>', html)   # имена
-    frstval = re.findall(r'<td width="85|76">\s*?(\w.*?)\s*?</td>', html)                                                                       # первое значение
+    nextval = re.findall(r'<td width="(?:104|94|90)">\s*?(\w.*?)\s*?</td>', html)  # последующие значения
+    childnames = re.findall(r'<td width="(?:151|177)">\s*?([а-яёЁА-Я, ]*?)\s*?</td>', html)   # имена
+    frstval = re.findall(r'<td width="(?:85|76)">\s*?(\w.*?)\s*?</td>', html)                                                                       # первое значение
     result = {}
     result[childnames[0]] = frstval[0], nextval[0], nextval[1], nextval[2], nextval[3]                                                                                   #присвоили первые значения массиву
     for d in range(4, 200, 4):
@@ -218,10 +218,9 @@ def main():
         print('usage: filename')
         sys.exit(1)
 
-    filename = args[0]
+    filename = args[1]
     babynames = extract_names(filename)
     print_names(babynames)
-
   
 if __name__ == '__main__':
     main()
